@@ -50,40 +50,100 @@ const techStack = {
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="relative flex min-h-screen items-center pt-20">
-      <div class="absolute inset-0 dot-grid opacity-30" />
-      <div class="relative mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
-        <div class="max-w-4xl">
-          <p class="mb-6 font-mono text-sm text-primary">// gunamaya.dev</p>
-          <h1
+    <section class="relative flex items-center overflow-hidden pt-20">
+      <!-- Gradient orbs -->
+      <div class="hero-orb hero-orb-1" />
+      <div class="hero-orb hero-orb-2" />
+      <div class="hero-orb hero-orb-3" />
+      <!-- Concentric rings -->
+      <div class="hero-rings hero-rings-left" />
+      <div class="hero-rings hero-rings-right" />
+      <!-- Dot grid overlay -->
+      <div class="absolute inset-0 dot-grid opacity-20" />
+
+      <div class="relative mx-auto max-w-7xl px-6 py-24">
+        <div class="mx-auto max-w-3xl text-center">
+          <Motion
+            as="p"
+            class="mb-6 font-mono text-sm text-primary"
+            :initial="{ opacity: 0, y: 20 }"
+            :animate="{ opacity: 1, y: 0 }"
+            :transition="{ duration: 0.5 }"
+          >
+            // gunamaya.dev
+          </Motion>
+          <Motion
+            as="h1"
             class="font-serif text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl"
+            :initial="{ opacity: 0, y: 30 }"
+            :animate="{ opacity: 1, y: 0 }"
+            :transition="{ duration: 0.6, delay: 0.1 }"
           >
             Building
             <span class="gradient-text">High-Performance</span>
             Systems &
-            <span class="gradient-text">AI</span> Solutions
-          </h1>
-          <p
-            class="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            <span class="gradient-text">AI</span> Solutions<span
+              class="text-primary"
+              >.</span
+            >
+          </Motion>
+          <Motion
+            as="p"
+            class="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            :initial="{ opacity: 0, y: 24 }"
+            :animate="{ opacity: 1, y: 0 }"
+            :transition="{ duration: 0.5, delay: 0.2 }"
           >
             Kami membangun sistem yang bisa handle jutaan request,
             mengintegrasikan AI ke dalam bisnis Anda, dan merancang arsitektur
             teknologi yang scalable dari day one.
-          </p>
-          <div class="mt-10 flex flex-wrap gap-4">
+          </Motion>
+          <Motion
+            as="div"
+            class="mt-10 flex flex-wrap items-center justify-center gap-4"
+            :initial="{ opacity: 0, y: 20 }"
+            :animate="{ opacity: 1, y: 0 }"
+            :transition="{ duration: 0.5, delay: 0.3 }"
+          >
             <NuxtLink
               to="/contact"
-              class="inline-block rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
+              class="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
             >
               Book a Consultation
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M7 17L17 7M17 7H7M17 7v10"
+                />
+              </svg>
             </NuxtLink>
             <NuxtLink
               to="/work"
               class="inline-flex items-center gap-2 rounded-full border border-border px-8 py-3.5 text-base font-medium text-foreground transition-all hover:border-primary/50"
             >
               View Portfolio
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
             </NuxtLink>
-          </div>
+          </Motion>
         </div>
       </div>
     </section>
@@ -93,12 +153,17 @@ const techStack = {
       <div
         class="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-16 md:grid-cols-4 lg:px-8"
       >
-        <StatCounter
-          v-for="stat in stats"
+        <Motion
+          as="div"
+          v-for="(stat, i) in stats"
           :key="stat.value"
-          :value="stat.value"
-          :label="stat.label"
-        />
+          :initial="{ opacity: 0, y: 24 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true }"
+          :transition="{ duration: 0.5, delay: i * 0.1 }"
+        >
+          <StatCounter :value="stat.value" :label="stat.label" />
+        </Motion>
       </div>
     </section>
 
@@ -106,14 +171,23 @@ const techStack = {
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
       <SectionHeading title="What we build" label="// services" />
       <div class="grid gap-6 md:grid-cols-3">
-        <ServiceCard
-          v-for="service in services"
+        <Motion
+          as="div"
+          v-for="(service, i) in services"
           :key="service.title"
-          :title="service.title"
-          :description="service.description"
-          :icon="service.icon"
-          link="/services"
-        />
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true, amount: 0.2 }"
+          :transition="{ duration: 0.5, delay: i * 0.1 }"
+          :whileHover="{ y: -4, transition: { duration: 0.2 } }"
+        >
+          <ServiceCard
+            :title="service.title"
+            :description="service.description"
+            :icon="service.icon"
+            link="/services"
+          />
+        </Motion>
       </div>
     </section>
 
@@ -126,11 +200,18 @@ const techStack = {
           label="// portfolio"
         />
         <div class="grid gap-6 md:grid-cols-2">
-          <ProjectCard
-            v-for="project in featuredProjects.slice(0, 4)"
+          <Motion
+            as="div"
+            v-for="(project, i) in featuredProjects.slice(0, 4)"
             :key="project.slug"
-            :project="project"
-          />
+            :initial="{ opacity: 0, y: 30 }"
+            :whileInView="{ opacity: 1, y: 0 }"
+            :inViewOptions="{ once: true, amount: 0.1 }"
+            :transition="{ duration: 0.5, delay: i * 0.1 }"
+            :whileHover="{ y: -4, transition: { duration: 0.2 } }"
+          >
+            <ProjectCard :project="project" />
+          </Motion>
         </div>
         <div class="mt-12 text-center">
           <NuxtLink
@@ -160,7 +241,14 @@ const techStack = {
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
       <SectionHeading title="Tech Stack" label="// tools we use" />
       <div class="grid gap-8 md:grid-cols-3">
-        <div class="rounded-2xl border border-border bg-card p-6">
+        <Motion
+          as="div"
+          class="rounded-2xl border border-border bg-card p-6"
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true }"
+          :transition="{ duration: 0.5 }"
+        >
           <h3 class="mb-4 font-mono text-sm font-semibold text-primary">
             Backend
           </h3>
@@ -173,8 +261,15 @@ const techStack = {
               {{ tech }}
             </span>
           </div>
-        </div>
-        <div class="rounded-2xl border border-border bg-card p-6">
+        </Motion>
+        <Motion
+          as="div"
+          class="rounded-2xl border border-border bg-card p-6"
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true }"
+          :transition="{ duration: 0.5, delay: 0.1 }"
+        >
           <h3 class="mb-4 font-mono text-sm font-semibold text-primary">
             Frontend
           </h3>
@@ -187,8 +282,15 @@ const techStack = {
               {{ tech }}
             </span>
           </div>
-        </div>
-        <div class="rounded-2xl border border-border bg-card p-6">
+        </Motion>
+        <Motion
+          as="div"
+          class="rounded-2xl border border-border bg-card p-6"
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true }"
+          :transition="{ duration: 0.5, delay: 0.2 }"
+        >
           <h3 class="mb-4 font-mono text-sm font-semibold text-primary">
             Infrastructure
           </h3>
@@ -201,7 +303,7 @@ const techStack = {
               {{ tech }}
             </span>
           </div>
-        </div>
+        </Motion>
       </div>
     </section>
 
@@ -210,11 +312,17 @@ const techStack = {
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <SectionHeading title="What clients say" label="// testimonials" />
         <div class="grid gap-6 md:grid-cols-2">
-          <TestimonialCard
-            v-for="(testimonial, index) in testimonials.slice(0, 4)"
-            :key="index"
-            :testimonial="testimonial"
-          />
+          <Motion
+            as="div"
+            v-for="(testimonial, i) in testimonials.slice(0, 4)"
+            :key="i"
+            :initial="{ opacity: 0, y: 30 }"
+            :whileInView="{ opacity: 1, y: 0 }"
+            :inViewOptions="{ once: true, amount: 0.1 }"
+            :transition="{ duration: 0.5, delay: i * 0.1 }"
+          >
+            <TestimonialCard :testimonial="testimonial" />
+          </Motion>
         </div>
       </div>
     </section>
@@ -244,11 +352,18 @@ const techStack = {
         </NuxtLink>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
-        <BlogCard
-          v-for="post in blogPosts.slice(0, 3)"
+        <Motion
+          as="div"
+          v-for="(post, i) in blogPosts.slice(0, 3)"
           :key="post.slug"
-          :post="post"
-        />
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true, amount: 0.1 }"
+          :transition="{ duration: 0.5, delay: i * 0.1 }"
+          :whileHover="{ y: -4, transition: { duration: 0.2 } }"
+        >
+          <BlogCard :post="post" />
+        </Motion>
       </div>
     </section>
   </div>

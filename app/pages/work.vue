@@ -15,52 +15,81 @@ useSeoMeta({
     <!-- Hero -->
     <section class="pt-32 pb-16">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <p class="mb-6 font-mono text-sm text-primary">// portfolio</p>
-        <h1
+        <Motion as="p"
+          class="mb-6 font-mono text-sm text-primary"
+          :initial="{ opacity: 0, y: 20 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5 }"
+        >
+          // portfolio
+        </Motion>
+        <Motion as="h1"
           class="max-w-3xl font-serif text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl"
+          :initial="{ opacity: 0, y: 30 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.6, delay: 0.1 }"
         >
           Systems we've
           <span class="gradient-text">built</span
           ><span class="text-primary">,</span><br />
           problems we've solved.
-        </h1>
-        <p
+        </Motion>
+        <Motion as="p"
           class="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+          :initial="{ opacity: 0, y: 24 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5, delay: 0.2 }"
         >
           Setiap proyek adalah bukti komitmen kami terhadap engineering
           excellence dan arsitektur yang scalable.
-        </p>
+        </Motion>
       </div>
     </section>
 
     <!-- Projects Grid -->
     <section class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
       <div class="grid gap-6 md:grid-cols-2">
-        <ProjectCard
-          v-for="project in projects"
+        <Motion as="div"
+          v-for="(project, i) in projects"
           :key="project.slug"
-          :project="project"
-        />
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true, amount: 0.1 }"
+          :transition="{ duration: 0.5, delay: (i % 2) * 0.1 }"
+          :whileHover="{ y: -4, transition: { duration: 0.2 } }"
+        >
+          <ProjectCard :project="project" />
+        </Motion>
       </div>
     </section>
 
     <!-- Bottom CTA -->
     <section class="border-t border-border">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <p
+        <Motion as="p"
           class="mx-auto max-w-3xl text-center text-lg leading-relaxed text-muted-foreground md:text-xl"
+          :initial="{ opacity: 0, y: 24 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true }"
+          :transition="{ duration: 0.5 }"
         >
           Punya ide atau tantangan teknis? Kami siap membantu merancang dan
           membangun solusi yang tepat untuk bisnis Anda.
-        </p>
-        <div class="mt-10 text-center">
+        </Motion>
+        <Motion as="div"
+          class="mt-10 text-center"
+          :initial="{ opacity: 0, y: 16 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true }"
+          :transition="{ duration: 0.5, delay: 0.1 }"
+        >
           <NuxtLink
             to="/contact"
             class="inline-block rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
           >
             Book a Consultation
           </NuxtLink>
-        </div>
+        </Motion>
       </div>
     </section>
   </div>

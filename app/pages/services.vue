@@ -109,19 +109,32 @@ function toggleFaq(index: number) {
     <!-- Hero -->
     <section class="pt-32 pb-16">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <p class="mb-6 font-mono text-sm text-primary">// services</p>
-        <h1
+        <Motion as="p"
+          class="mb-6 font-mono text-sm text-primary"
+          :initial="{ opacity: 0, y: 20 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5 }"
+        >
+          // services
+        </Motion>
+        <Motion as="h1"
           class="max-w-4xl font-serif text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl"
+          :initial="{ opacity: 0, y: 30 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.6, delay: 0.1 }"
         >
           Engineering solutions that
           <span class="gradient-text">scale</span> with your ambition.
-        </h1>
-        <p
+        </Motion>
+        <Motion as="p"
           class="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+          :initial="{ opacity: 0, y: 24 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5, delay: 0.2 }"
         >
           Tiga pilar layanan kami dirancang untuk membantu bisnis Anda membangun
           teknologi yang robust, intelligent, dan future-proof.
-        </p>
+        </Motion>
       </div>
     </section>
 
@@ -129,10 +142,14 @@ function toggleFaq(index: number) {
     <section class="border-y border-border">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <div class="space-y-20">
-          <div
+          <Motion as="div"
             v-for="(service, idx) in servicePillars"
             :key="service.title"
             class="grid items-start gap-12 lg:grid-cols-2"
+            :initial="{ opacity: 0, y: 40 }"
+            :whileInView="{ opacity: 1, y: 0 }"
+            :inViewOptions="{ once: true, amount: 0.2 }"
+            :transition="{ duration: 0.6 }"
           >
             <div>
               <div
@@ -164,7 +181,7 @@ function toggleFaq(index: number) {
                 </li>
               </ul>
             </div>
-          </div>
+          </Motion>
         </div>
       </div>
     </section>
@@ -173,10 +190,14 @@ function toggleFaq(index: number) {
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
       <SectionHeading title="Tech Capabilities" label="// our toolbox" />
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div
-          v-for="(techs, category) in techCapabilities"
+        <Motion as="div"
+          v-for="(techs, category, i) in techCapabilities"
           :key="category"
           class="rounded-2xl border border-border bg-card p-6"
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true }"
+          :transition="{ duration: 0.5, delay: (i as number) * 0.1 }"
         >
           <h3
             class="mb-4 font-mono text-sm font-semibold capitalize text-primary"
@@ -192,23 +213,29 @@ function toggleFaq(index: number) {
               {{ tech }}
             </span>
           </div>
-        </div>
+        </Motion>
       </div>
     </section>
-
-    <!-- Engagement Models -->
     <section class="border-y border-border">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <SectionHeading title="Engagement Models" label="// how we work" />
         <div class="grid gap-6 md:grid-cols-3">
-          <EngagementCard
-            v-for="model in engagementModels"
+          <Motion as="div"
+            v-for="(model, i) in engagementModels"
             :key="model.title"
-            :title="model.title"
-            :subtitle="model.subtitle"
-            :description="model.description"
-            link="/contact"
-          />
+            :initial="{ opacity: 0, y: 30 }"
+            :whileInView="{ opacity: 1, y: 0 }"
+            :inViewOptions="{ once: true, amount: 0.2 }"
+            :transition="{ duration: 0.5, delay: i * 0.1 }"
+            :whileHover="{ y: -4, transition: { duration: 0.2 } }"
+          >
+            <EngagementCard
+              :title="model.title"
+              :subtitle="model.subtitle"
+              :description="model.description"
+              link="/contact"
+            />
+          </Motion>
         </div>
       </div>
     </section>
@@ -220,7 +247,13 @@ function toggleFaq(index: number) {
         subtitle="questions"
         label="// FAQ"
       />
-      <div class="mx-auto max-w-3xl">
+      <Motion as="div"
+        class="mx-auto max-w-3xl"
+        :initial="{ opacity: 0, y: 30 }"
+        :whileInView="{ opacity: 1, y: 0 }"
+        :inViewOptions="{ once: true }"
+        :transition="{ duration: 0.6 }"
+      >
         <div
           v-for="(item, index) in faqs"
           :key="index"
@@ -263,7 +296,7 @@ function toggleFaq(index: number) {
             </div>
           </div>
         </div>
-      </div>
+      </Motion>
     </section>
   </div>
 </template>

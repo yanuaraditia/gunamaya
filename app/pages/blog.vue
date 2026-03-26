@@ -23,18 +23,31 @@ const filteredPosts = computed(() => {
     <!-- Hero -->
     <section class="pt-32 pb-16">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <p class="mb-6 font-mono text-sm text-primary">// blog</p>
-        <h1
+        <Motion as="p"
+          class="mb-6 font-mono text-sm text-primary"
+          :initial="{ opacity: 0, y: 20 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5 }"
+        >
+          // blog
+        </Motion>
+        <Motion as="h1"
           class="max-w-3xl font-serif text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl"
+          :initial="{ opacity: 0, y: 30 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.6, delay: 0.1 }"
         >
           Engineering Blog
-        </h1>
-        <p
+        </Motion>
+        <Motion as="p"
           class="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+          :initial="{ opacity: 0, y: 24 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5, delay: 0.2 }"
         >
           Deep dives ke engineering, arsitektur, AI integration, dan lessons
           learned dari proyek-proyek kami.
-        </p>
+        </Motion>
       </div>
     </section>
 
@@ -62,7 +75,17 @@ const filteredPosts = computed(() => {
     <!-- Blog Grid -->
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <BlogCard v-for="post in filteredPosts" :key="post.slug" :post="post" />
+        <Motion as="div"
+          v-for="(post, i) in filteredPosts"
+          :key="post.slug"
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true, amount: 0.1 }"
+          :transition="{ duration: 0.5, delay: (i % 3) * 0.1 }"
+          :whileHover="{ y: -4, transition: { duration: 0.2 } }"
+        >
+          <BlogCard :post="post" />
+        </Motion>
       </div>
       <div v-if="filteredPosts.length === 0" class="py-16 text-center">
         <p class="text-muted-foreground">No posts found in this category.</p>

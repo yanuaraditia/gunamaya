@@ -33,19 +33,32 @@ function handleSubmit() {
     <!-- Hero -->
     <section class="pt-32 pb-16">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <p class="mb-6 font-mono text-sm text-primary">// contact</p>
-        <h1
+        <Motion as="p"
+          class="mb-6 font-mono text-sm text-primary"
+          :initial="{ opacity: 0, y: 20 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5 }"
+        >
+          // contact
+        </Motion>
+        <Motion as="h1"
           class="max-w-3xl font-serif text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl"
+          :initial="{ opacity: 0, y: 30 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.6, delay: 0.1 }"
         >
           Book a Strategic
           <span class="gradient-text">Consultation</span>
-        </h1>
-        <p
+        </Motion>
+        <Motion as="p"
           class="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+          :initial="{ opacity: 0, y: 24 }"
+          :animate="{ opacity: 1, y: 0 }"
+          :transition="{ duration: 0.5, delay: 0.2 }"
         >
           Ceritakan tantangan teknis Anda. Kami akan membantu merancang solusi
           yang scalable dan production-ready.
-        </p>
+        </Motion>
       </div>
     </section>
 
@@ -53,7 +66,13 @@ function handleSubmit() {
     <section class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
       <div class="grid gap-16 lg:grid-cols-2">
         <!-- Form -->
-        <form class="space-y-8" @submit.prevent="handleSubmit">
+        <Motion as="div"
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true }"
+          :transition="{ duration: 0.6 }"
+        >
+          <form class="space-y-8" @submit.prevent="handleSubmit">
           <div>
             <label
               for="name"
@@ -153,9 +172,16 @@ function handleSubmit() {
             Send Message
           </button>
         </form>
+        </Motion>
 
         <!-- Right side info -->
-        <div class="flex flex-col justify-center">
+        <Motion as="div"
+          class="flex flex-col justify-center"
+          :initial="{ opacity: 0, y: 30 }"
+          :whileInView="{ opacity: 1, y: 0 }"
+          :inViewOptions="{ once: true }"
+          :transition="{ duration: 0.6, delay: 0.15 }"
+        >
           <div class="space-y-10">
             <div>
               <h3 class="font-mono text-sm font-semibold text-primary">
@@ -217,7 +243,7 @@ function handleSubmit() {
               </p>
             </div>
           </div>
-        </div>
+        </Motion>
       </div>
     </section>
   </div>
