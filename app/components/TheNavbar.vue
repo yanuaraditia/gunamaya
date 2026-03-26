@@ -83,9 +83,11 @@ onUnmounted(() => {
       <div class="hidden lg:flex">
         <NuxtLink
           to="/contact"
-          class="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
+          class="btn-aurora rounded-full px-5 py-2.5 text-sm font-medium text-primary-foreground"
         >
-          Book a Consultation
+          <span class="btn-aurora-content" data-text="Book a Consultation">
+            <span>Book a Consultation</span>
+          </span>
         </NuxtLink>
       </div>
 
@@ -137,10 +139,12 @@ onUnmounted(() => {
           </NuxtLink>
           <NuxtLink
             to="/contact"
-            class="mt-4 rounded-full bg-primary px-8 py-3 text-lg font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
+            class="btn-aurora mt-4 rounded-full px-8 py-3 text-lg font-medium text-primary-foreground"
             @click="closeMenu"
           >
-            Book a Consultation
+            <span class="btn-aurora-content" data-text="Book a Consultation">
+              <span>Book a Consultation</span>
+            </span>
           </NuxtLink>
         </div>
       </div>

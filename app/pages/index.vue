@@ -107,22 +107,25 @@ const techStack = {
           >
             <NuxtLink
               to="/contact"
-              class="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
+              class="btn-aurora inline-flex items-center rounded-full px-8 py-3.5 text-base font-medium text-primary-foreground"
             >
-              Book a Consultation
-              <svg
-                class="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M7 17L17 7M17 7H7M17 7v10"
-                />
-              </svg>
+              <span class="btn-aurora-content" data-text="Book a Consultation">
+                <span
+                  >Book a Consultation
+                  <svg
+                    class="inline h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M7 17L17 7M17 7H7M17 7v10"
+                    /></svg
+                ></span>
+              </span>
             </NuxtLink>
             <NuxtLink
               to="/work"

@@ -58,7 +58,8 @@ const principles = [
     <!-- Hero -->
     <section class="pt-32 pb-16">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <Motion as="p"
+        <Motion
+          as="p"
           class="mb-6 font-mono text-sm text-primary"
           :initial="{ opacity: 0, y: 20 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -66,7 +67,8 @@ const principles = [
         >
           // about us
         </Motion>
-        <Motion as="h1"
+        <Motion
+          as="h1"
           class="max-w-4xl font-serif text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl"
           :initial="{ opacity: 0, y: 30 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -75,7 +77,8 @@ const principles = [
           Engineers who build
           <span class="gradient-text">systems that matter</span>
         </Motion>
-        <Motion as="p"
+        <Motion
+          as="p"
           class="mt-8 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg"
           :initial="{ opacity: 0, y: 24 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -93,7 +96,8 @@ const principles = [
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <SectionHeading title="Track Record" label="// in numbers" />
         <div class="grid grid-cols-2 gap-12 md:grid-cols-4">
-          <Motion as="div"
+          <Motion
+            as="div"
             v-for="(stat, i) in trackRecord"
             :key="stat.value"
             :initial="{ opacity: 0, y: 24 }"
@@ -116,7 +120,8 @@ const principles = [
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
       <SectionHeading title="The Team" label="// who we are" />
       <div class="grid gap-6 md:grid-cols-2">
-        <Motion as="div"
+        <Motion
+          as="div"
           v-for="(member, i) in team"
           :key="member.name"
           :initial="{ opacity: 0, y: 30 }"
@@ -135,7 +140,8 @@ const principles = [
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <SectionHeading title="How we work" label="// principles" />
         <div class="grid gap-8 md:grid-cols-2">
-          <Motion as="div"
+          <Motion
+            as="div"
             v-for="(principle, i) in principles"
             :key="principle.title"
             class="rounded-2xl border border-border bg-card p-8"
@@ -158,7 +164,8 @@ const principles = [
     <!-- CTA -->
     <section class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
       <div class="text-center">
-        <Motion as="p"
+        <Motion
+          as="p"
           class="mb-4 font-mono text-sm text-primary"
           :initial="{ opacity: 0, y: 16 }"
           :whileInView="{ opacity: 1, y: 0 }"
@@ -167,7 +174,8 @@ const principles = [
         >
           // let's talk
         </Motion>
-        <Motion as="h2"
+        <Motion
+          as="h2"
           class="mx-auto max-w-2xl font-serif text-3xl font-bold text-foreground md:text-4xl"
           :initial="{ opacity: 0, y: 24 }"
           :whileInView="{ opacity: 1, y: 0 }"
@@ -176,7 +184,8 @@ const principles = [
         >
           Siap membangun sesuatu yang luar biasa?
         </Motion>
-        <Motion as="p"
+        <Motion
+          as="p"
           class="mx-auto mt-6 max-w-xl text-base text-muted-foreground"
           :initial="{ opacity: 0, y: 20 }"
           :whileInView="{ opacity: 1, y: 0 }"
@@ -186,7 +195,8 @@ const principles = [
           Mari diskusikan bagaimana kami bisa membantu bisnis Anda dengan
           engineering yang solid dan arsitektur yang scalable.
         </Motion>
-        <Motion as="div"
+        <Motion
+          as="div"
           class="mt-10"
           :initial="{ opacity: 0, y: 16 }"
           :whileInView="{ opacity: 1, y: 0 }"
@@ -195,9 +205,11 @@ const principles = [
         >
           <NuxtLink
             to="/contact"
-            class="inline-block rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
+            class="btn-aurora inline-block rounded-full px-8 py-3.5 text-base font-medium text-primary-foreground"
           >
-            Book a Consultation
+            <span class="btn-aurora-content" data-text="Book a Consultation">
+              <span>Book a Consultation</span>
+            </span>
           </NuxtLink>
         </Motion>
       </div>

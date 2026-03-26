@@ -15,7 +15,8 @@ useSeoMeta({
     <!-- Hero -->
     <section class="pt-32 pb-16">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <Motion as="p"
+        <Motion
+          as="p"
           class="mb-6 font-mono text-sm text-primary"
           :initial="{ opacity: 0, y: 20 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -23,7 +24,8 @@ useSeoMeta({
         >
           // portfolio
         </Motion>
-        <Motion as="h1"
+        <Motion
+          as="h1"
           class="max-w-3xl font-serif text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl"
           :initial="{ opacity: 0, y: 30 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -34,7 +36,8 @@ useSeoMeta({
           ><span class="text-primary">,</span><br />
           problems we've solved.
         </Motion>
-        <Motion as="p"
+        <Motion
+          as="p"
           class="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
           :initial="{ opacity: 0, y: 24 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -49,7 +52,8 @@ useSeoMeta({
     <!-- Projects Grid -->
     <section class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
       <div class="grid gap-6 md:grid-cols-2">
-        <Motion as="div"
+        <Motion
+          as="div"
           v-for="(project, i) in projects"
           :key="project.slug"
           :initial="{ opacity: 0, y: 30 }"
@@ -66,7 +70,8 @@ useSeoMeta({
     <!-- Bottom CTA -->
     <section class="border-t border-border">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <Motion as="p"
+        <Motion
+          as="p"
           class="mx-auto max-w-3xl text-center text-lg leading-relaxed text-muted-foreground md:text-xl"
           :initial="{ opacity: 0, y: 24 }"
           :whileInView="{ opacity: 1, y: 0 }"
@@ -76,7 +81,8 @@ useSeoMeta({
           Punya ide atau tantangan teknis? Kami siap membantu merancang dan
           membangun solusi yang tepat untuk bisnis Anda.
         </Motion>
-        <Motion as="div"
+        <Motion
+          as="div"
           class="mt-10 text-center"
           :initial="{ opacity: 0, y: 16 }"
           :whileInView="{ opacity: 1, y: 0 }"
@@ -85,9 +91,11 @@ useSeoMeta({
         >
           <NuxtLink
             to="/contact"
-            class="inline-block rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
+            class="btn-aurora inline-block rounded-full px-8 py-3.5 text-base font-medium text-primary-foreground"
           >
-            Book a Consultation
+            <span class="btn-aurora-content" data-text="Book a Consultation">
+              <span>Book a Consultation</span>
+            </span>
           </NuxtLink>
         </Motion>
       </div>

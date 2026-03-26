@@ -97,6 +97,101 @@
   }
 }
 
+/* Aurora button */
+@keyframes aurora-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.btn-aurora {
+  position: relative;
+  overflow: hidden;
+  background: var(--primary);
+  box-shadow: 0 0 12px rgba(0, 229, 160, 0.15);
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.2s ease;
+}
+
+/* Aurora gradient overlay — visible on hover */
+.btn-aurora::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #00e5a0 0%,
+    #00c9a0 20%,
+    #22d3ee 40%,
+    #00e5a0 60%,
+    #10b981 80%,
+    #22d3ee 100%
+  );
+  background-size: 300% 300%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: aurora-shift 4s ease infinite;
+}
+
+.btn-aurora:hover::before {
+  opacity: 1;
+}
+
+.btn-aurora:hover {
+  box-shadow:
+    0 0 24px rgba(0, 229, 160, 0.45),
+    0 0 60px rgba(34, 211, 238, 0.2),
+    0 0 100px rgba(0, 229, 160, 0.1);
+  transform: translateY(-1px);
+}
+
+.btn-aurora:active {
+  transform: translateY(0);
+}
+
+/* Text slide-up reveal on hover */
+.btn-aurora-content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+.btn-aurora-content > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.btn-aurora-content::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.btn-aurora:hover .btn-aurora-content > span {
+  transform: translateY(-100%);
+}
+
+.btn-aurora:hover .btn-aurora-content::after {
+  transform: translateY(0);
+}
+
 /* Glow effects */
 .glow-primary {
   box-shadow:

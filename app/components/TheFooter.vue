@@ -34,7 +34,8 @@ const contactLinks = [
   <footer class="border-t border-border bg-background">
     <!-- CTA Section -->
     <section class="mx-auto max-w-7xl px-6 py-24 text-center lg:px-8">
-      <Motion as="p"
+      <Motion
+        as="p"
         class="mb-4 font-mono text-sm text-primary"
         :initial="{ opacity: 0, y: 16 }"
         :whileInView="{ opacity: 1, y: 0 }"
@@ -43,7 +44,8 @@ const contactLinks = [
       >
         // ready to build?
       </Motion>
-      <Motion as="h2"
+      <Motion
+        as="h2"
         class="mx-auto max-w-3xl font-serif text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl"
         :initial="{ opacity: 0, y: 24 }"
         :whileInView="{ opacity: 1, y: 0 }"
@@ -52,7 +54,8 @@ const contactLinks = [
       >
         Discuss Your AI & Tech Strategy
       </Motion>
-      <Motion as="p"
+      <Motion
+        as="p"
         class="mx-auto mt-6 max-w-xl text-base text-muted-foreground"
         :initial="{ opacity: 0, y: 20 }"
         :whileInView="{ opacity: 1, y: 0 }"
@@ -62,7 +65,8 @@ const contactLinks = [
         Mari diskusikan bagaimana teknologi yang tepat bisa mengakselerasi
         bisnis Anda.
       </Motion>
-      <Motion as="div"
+      <Motion
+        as="div"
         class="mt-10"
         :initial="{ opacity: 0, y: 16 }"
         :whileInView="{ opacity: 1, y: 0 }"
@@ -71,9 +75,14 @@ const contactLinks = [
       >
         <NuxtLink
           to="/contact"
-          class="inline-block rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
+          class="btn-aurora inline-block rounded-full px-8 py-3.5 text-base font-medium text-primary-foreground"
         >
-          Book a Strategic Consultation
+          <span
+            class="btn-aurora-content"
+            data-text="Book a Strategic Consultation"
+          >
+            <span>Book a Strategic Consultation</span>
+          </span>
         </NuxtLink>
       </Motion>
     </section>

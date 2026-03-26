@@ -33,7 +33,8 @@ function handleSubmit() {
     <!-- Hero -->
     <section class="pt-32 pb-16">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <Motion as="p"
+        <Motion
+          as="p"
           class="mb-6 font-mono text-sm text-primary"
           :initial="{ opacity: 0, y: 20 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -41,7 +42,8 @@ function handleSubmit() {
         >
           // contact
         </Motion>
-        <Motion as="h1"
+        <Motion
+          as="h1"
           class="max-w-3xl font-serif text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl"
           :initial="{ opacity: 0, y: 30 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -50,7 +52,8 @@ function handleSubmit() {
           Book a Strategic
           <span class="gradient-text">Consultation</span>
         </Motion>
-        <Motion as="p"
+        <Motion
+          as="p"
           class="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
           :initial="{ opacity: 0, y: 24 }"
           :animate="{ opacity: 1, y: 0 }"
@@ -66,116 +69,120 @@ function handleSubmit() {
     <section class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
       <div class="grid gap-16 lg:grid-cols-2">
         <!-- Form -->
-        <Motion as="div"
+        <Motion
+          as="div"
           :initial="{ opacity: 0, y: 30 }"
           :whileInView="{ opacity: 1, y: 0 }"
           :inViewOptions="{ once: true }"
           :transition="{ duration: 0.6 }"
         >
           <form class="space-y-8" @submit.prevent="handleSubmit">
-          <div>
-            <label
-              for="name"
-              class="mb-2 block font-mono text-sm font-medium text-foreground"
-              >Name</label
-            >
-            <input
-              id="name"
-              v-model="form.name"
-              type="text"
-              required
-              class="w-full border-b border-border bg-transparent py-3 text-foreground outline-none placeholder:text-muted-foreground/50 focus:border-primary"
-              placeholder="Your name"
-            />
-          </div>
-
-          <div>
-            <label
-              for="email"
-              class="mb-2 block font-mono text-sm font-medium text-foreground"
-              >Email</label
-            >
-            <input
-              id="email"
-              v-model="form.email"
-              type="email"
-              required
-              class="w-full border-b border-border bg-transparent py-3 text-foreground outline-none placeholder:text-muted-foreground/50 focus:border-primary"
-              placeholder="your@email.com"
-            />
-          </div>
-
-          <div>
-            <label
-              for="company"
-              class="mb-2 block font-mono text-sm font-medium text-foreground"
-              >Company</label
-            >
-            <input
-              id="company"
-              v-model="form.company"
-              type="text"
-              class="w-full border-b border-border bg-transparent py-3 text-foreground outline-none placeholder:text-muted-foreground/50 focus:border-primary"
-              placeholder="Your company name"
-            />
-          </div>
-
-          <div>
-            <label
-              for="projectType"
-              class="mb-2 block font-mono text-sm font-medium text-foreground"
-              >Project Type</label
-            >
-            <select
-              id="projectType"
-              v-model="form.projectType"
-              class="w-full border-b border-border bg-transparent py-3 text-foreground outline-none focus:border-primary"
-            >
-              <option
-                value=""
-                disabled
-                class="bg-background text-muted-foreground"
+            <div>
+              <label
+                for="name"
+                class="mb-2 block font-mono text-sm font-medium text-foreground"
+                >Name</label
               >
-                Select project type
-              </option>
-              <option
-                v-for="opt in projectTypes"
-                :key="opt"
-                :value="opt"
-                class="bg-background text-foreground"
+              <input
+                id="name"
+                v-model="form.name"
+                type="text"
+                required
+                class="w-full border-b border-border bg-transparent py-3 text-foreground outline-none placeholder:text-muted-foreground/50 focus:border-primary"
+                placeholder="Your name"
+              />
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="mb-2 block font-mono text-sm font-medium text-foreground"
+                >Email</label
               >
-                {{ opt }}
-              </option>
-            </select>
-          </div>
+              <input
+                id="email"
+                v-model="form.email"
+                type="email"
+                required
+                class="w-full border-b border-border bg-transparent py-3 text-foreground outline-none placeholder:text-muted-foreground/50 focus:border-primary"
+                placeholder="your@email.com"
+              />
+            </div>
 
-          <div>
-            <label
-              for="message"
-              class="mb-2 block font-mono text-sm font-medium text-foreground"
-              >Tell us about your project</label
+            <div>
+              <label
+                for="company"
+                class="mb-2 block font-mono text-sm font-medium text-foreground"
+                >Company</label
+              >
+              <input
+                id="company"
+                v-model="form.company"
+                type="text"
+                class="w-full border-b border-border bg-transparent py-3 text-foreground outline-none placeholder:text-muted-foreground/50 focus:border-primary"
+                placeholder="Your company name"
+              />
+            </div>
+
+            <div>
+              <label
+                for="projectType"
+                class="mb-2 block font-mono text-sm font-medium text-foreground"
+                >Project Type</label
+              >
+              <select
+                id="projectType"
+                v-model="form.projectType"
+                class="w-full border-b border-border bg-transparent py-3 text-foreground outline-none focus:border-primary"
+              >
+                <option
+                  value=""
+                  disabled
+                  class="bg-background text-muted-foreground"
+                >
+                  Select project type
+                </option>
+                <option
+                  v-for="opt in projectTypes"
+                  :key="opt"
+                  :value="opt"
+                  class="bg-background text-foreground"
+                >
+                  {{ opt }}
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                for="message"
+                class="mb-2 block font-mono text-sm font-medium text-foreground"
+                >Tell us about your project</label
+              >
+              <textarea
+                id="message"
+                v-model="form.message"
+                required
+                rows="5"
+                class="w-full resize-none border-b border-border bg-transparent py-3 text-foreground outline-none placeholder:text-muted-foreground/50 focus:border-primary"
+                placeholder="Describe your project, technical challenges, and goals..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="btn-aurora inline-block rounded-full px-8 py-3.5 text-base font-medium text-primary-foreground"
             >
-            <textarea
-              id="message"
-              v-model="form.message"
-              required
-              rows="5"
-              class="w-full resize-none border-b border-border bg-transparent py-3 text-foreground outline-none placeholder:text-muted-foreground/50 focus:border-primary"
-              placeholder="Describe your project, technical challenges, and goals..."
-            />
-          </div>
-
-          <button
-            type="submit"
-            class="inline-block rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground transition-all hover:shadow-[0_0_20px_rgba(0,229,160,0.3)]"
-          >
-            Send Message
-          </button>
-        </form>
+              <span class="btn-aurora-content" data-text="Send Message">
+                <span>Send Message</span>
+              </span>
+            </button>
+          </form>
         </Motion>
 
         <!-- Right side info -->
-        <Motion as="div"
+        <Motion
+          as="div"
           class="flex flex-col justify-center"
           :initial="{ opacity: 0, y: 30 }"
           :whileInView="{ opacity: 1, y: 0 }"
