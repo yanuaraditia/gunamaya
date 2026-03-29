@@ -7,9 +7,9 @@ defineProps<{
 </script>
 
 <template>
-  <AppCard>
+  <AppCard variant="interactive" class="flex h-full flex-col">
     <span class="mb-4 block font-serif text-3xl text-primary">"</span>
-    <blockquote class="text-base leading-relaxed text-foreground/90">
+    <blockquote class="flex-1 text-base leading-relaxed text-foreground/90">
       {{ testimonial.quote }}
     </blockquote>
     <div class="mt-6 flex items-center gap-4">

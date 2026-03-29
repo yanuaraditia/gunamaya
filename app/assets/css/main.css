@@ -192,6 +192,45 @@
   transform: translateY(0);
 }
 
+/* Card gradient border */
+@keyframes gradient-rotate {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card-gradient-border {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card-gradient-border:hover {
+  border-color: transparent;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    conic-gradient(
+        from var(--gradient-angle),
+        color-mix(in srgb, var(--primary) 50%, transparent),
+        color-mix(in srgb, var(--primary) 10%, transparent) 30%,
+        color-mix(in srgb, var(--primary) 50%, transparent) 50%,
+        color-mix(in srgb, var(--primary) 10%, transparent) 80%,
+        color-mix(in srgb, var(--primary) 50%, transparent)
+      )
+      border-box;
+  box-shadow: 0 0 24px color-mix(in srgb, var(--primary) 12%, transparent);
+  animation: gradient-rotate 3s linear infinite;
+}
+
 /* Glow effects */
 .glow-primary {
   box-shadow:

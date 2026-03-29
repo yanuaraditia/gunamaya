@@ -132,11 +132,11 @@ const allTech = [
         <!-- Scrolling track -->
         <div class="flex animate-scroll-left w-max gap-10 items-center">
           <div v-for="tech in allTech" :key="tech.name" class="px-3">
-            <Icon :name="tech.icon" class="h-7 w-7 text-muted-foreground/50" />
+            <Icon :name="tech.icon" class="h-9 w-9 text-muted-foreground/50 transition-colors duration-300 hover:text-primary" />
           </div>
           <!-- Duplicate for seamless loop -->
           <div v-for="tech in allTech" :key="tech.name + '-dup'" class="px-3">
-            <Icon :name="tech.icon" class="h-7 w-7 text-muted-foreground/50" />
+            <Icon :name="tech.icon" class="h-9 w-9 text-muted-foreground/50 transition-colors duration-300 hover:text-primary" />
           </div>
         </div>
       </div>
@@ -213,10 +213,10 @@ const allTech = [
     <section class="border-y border-border">
       <div class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
         <SectionHeading title="Kata klien kami" label="// testimoni" />
-        <div class="grid gap-6 md:grid-cols-2">
+        <div class="grid gap-6 md:grid-cols-3">
           <Motion
             as="div"
-            v-for="(testimonial, i) in testimonials.slice(0, 4)"
+            v-for="(testimonial, i) in testimonials"
             :key="i"
             :initial="{ opacity: 0, y: 30 }"
             :whileInView="{ opacity: 1, y: 0 }"

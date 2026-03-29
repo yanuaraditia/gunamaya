@@ -224,9 +224,9 @@ function toggleFaq(index: number) {
               <span
                 v-for="tech in techs"
                 :key="tech.name"
-                class="inline-flex items-center gap-1.5 rounded-lg bg-secondary px-3 py-1.5 font-mono text-xs text-foreground"
+                class="group/tech inline-flex items-center gap-2 rounded-lg bg-secondary px-3 py-1.5 font-mono text-xs text-foreground transition-colors duration-200 hover:text-primary"
               >
-                <Icon :name="tech.icon" class="h-3.5 w-3.5" />
+                <Icon :name="tech.icon" class="h-4 w-4 text-muted-foreground transition-colors duration-200 group-hover/tech:text-primary" />
                 {{ tech.name }}
               </span>
             </div>
