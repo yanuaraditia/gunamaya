@@ -16,7 +16,7 @@ defineProps<{
   >
     <!-- Dot grid header -->
     <div
-      class="relative aspect-4/3 w-full overflow-hidden bg-secondary dot-grid"
+      class="relative aspect-video w-full overflow-hidden bg-secondary dot-grid"
     >
       <div class="flex h-full items-center justify-center">
         <span class="font-mono text-2xl font-bold text-primary/20">
