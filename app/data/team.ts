@@ -30,4 +30,10 @@ export const team: TeamMember[] = [
     user: "muhadif",
     country: "Indonesia",
   },
+  {
+    name: "Sofyan Saputra",
+    role: "Solution Architect",
+    user: "sofyan48",
+    country: "Indonesia",
+  },
 ];
